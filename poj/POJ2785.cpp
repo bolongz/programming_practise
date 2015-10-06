@@ -14,25 +14,23 @@ int main(){
 	int n;
 	scanf("%d", &n);
 	vector<int> E(n*n);
-	for(int i =0 ; i < n ; i++)
+	for(int i =0 ; i < n ; i++){
 		scanf("%d", &A[i]);
-	for(int i =0 ; i < n ; i++)
 		scanf("%d", &B[i]);
-	for(int i =0 ; i < n ; i++)
 		scanf("%d", &C[i]);
-	for(int i =0 ; i < n ; i++)
 		scanf("%d", &D[i]);
+	}
 	for(int  i= 0 ; i < n ; i++){
 		for(int j = 0 ; j < n ; j++){
-			E[i * n + j] = A[i] + B[j];
+			E[i * n + j] = C[i] + D[j];
 		}
 	}
 	sort(E.begin(), E.end());
 	long long int res = 0;
 	for(int  i= 0 ; i < n ; i++){
 		for(int j = 0 ; j < n ; j++){
-			int d = -(C[i] + D[j]);
-			res += upper_bound(E.begin(), E.end(), d) - lower_bound(E.begin(), E.end(), d);
+			int d = -(A[i] + B[j]);
+			res = res + upper_bound(E.begin(), E.end(), d) - lower_bound(E.begin(), E.end(), d);
 		}
 	}
 	printf("%lld\n", res);
