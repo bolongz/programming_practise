@@ -19,7 +19,7 @@ int sum(int i){
 	return s;
 }
 void add(int i, int x){
-	while(i <= n ){
+	while(i <= max_n ){
 		bit[i] += x;
 		i += i& -i;
 	}
@@ -30,7 +30,7 @@ int main(){
 	for(int i = 0; i < n; i++){
 		scanf("%d", &a[i]);
 	}
-	for(int i = 0; i <= n; i++){
+	for(int i = 0; i <= max_n; i++){
 		bit[i] = 0;
 	}
 	int ans = 0;
