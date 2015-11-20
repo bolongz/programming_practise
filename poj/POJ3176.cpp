@@ -34,13 +34,8 @@ int main(){
 				}else if( j == i){
 					cost[i][j] = max(cost[i][j], bowl[i][j] + cost[i-1][j - 1]);
 				}else{
-					if( j + 1 == i){
-						cost[i][j] = max(cost[i][j], bowl[i][j] + cost[i-1][j]);
-						cost[i][j] = max(cost[i][j], bowl[i][j] + cost[i-1][j- 1]);
-					}else{
-						cost[i][j] = max(cost[i][j], bowl[i][j] + cost[i-1][j]);
-						cost[i][j] = max(cost[i][j], bowl[i][j] + cost[i-1][j- 1]);
-					}
+					cost[i][j] = max(cost[i][j], bowl[i][j] + cost[i-1][j]);
+					cost[i][j] = max(cost[i][j], bowl[i][j] + cost[i-1][j- 1]);
 				}
 			}
 		}
