@@ -7,6 +7,7 @@
 #include<algorithm>
 #include<cstring>
 using namespace std;
+
 const int MAX_N = 350;
 int bowl[MAX_N][MAX_N];
 int cost[MAX_N][MAX_N];
