@@ -1,6 +1,7 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<stdio.h>
 using namespace std;
 const int MAX_V = 20000;
 const int MAX_R = 50000;
@@ -69,16 +70,21 @@ int kruskal(){
 }
 
 int main(){
-	cin >> N >> M >> R;
-	V = N + M;
-	int x[MAX_R], y[MAX_R], z[MAX_R];
-	for(int i = 0 ;  i < R ; i++){
-		cin >> x[i] >> y[i] >> z[i];
+	freopen("in.txt", "r", stdin);
+	int times;
+	scanf("%d", &times);
+	for(int k = 0 ; k < times; k++){
+		scanf("%d %d %d", &N, &M, &R);
+		V = N + M;
+		int x[MAX_R], y[MAX_R], z[MAX_R];
+		for(int i = 0 ;  i < R ; i++){
+			scanf("%d %d %d", &x[i], &y[i], &z[i]);
+		}
+		for(int  i= 0 ; i < R; i++){
+			e[i] = (edge){x[i], N+y[i], -z[i]};
+		}
+		cout << 10000 * (N + M) + kruskal() << endl;
 	}
-	cout << V << " " << N <<  " " << M << endl;
-	for(int  i= 0 ; i < R; i++){
-		e[i] = (edge){x[i], N+y[i], -z[i]};
-	}
-	cout << 10000 * (N + M) + kruskal() << endl;
+		fclose(stdin);
 	return 0;
 }
